@@ -1,24 +1,24 @@
+# pxt-ht16k33
 
-> Open this page at [https://garragames.github.io/pxt-ht16k33/](https://garragames.github.io/pxt-ht16k33/)
 
-## Use as Extension
 
-This repository can be added as an **extension** in MakeCode.
+## TODO
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/garragames/pxt-ht16k33** and import
+- [ ] Add a reference for your blocks here
+- [ ] Add "icon.png" image (300x200) in the root folder
+- [ ] Add "- beta" to the GitHub project description if you are still iterating it.
+- [ ] Turn on your automated build on https://travis-ci.org
+- [ ] Use "pxt bump" to create a tagged release on GitHub
+- [ ] Get your package reviewed and approved https://maker.makecode.com/packages/approval
 
-## Edit this project
+Read more at https://maker.makecode.com/packages/build-your-own
 
-To edit this repository in MakeCode.
+## License
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/garragames/pxt-ht16k33** and click import
 
-#### Metadata (used for search, rendering)
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+## Supported targets
+
+* for PXT/codal
+(The metadata above is needed for package search.)
+
