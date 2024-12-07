@@ -81,18 +81,6 @@ namespace ht16k33 {
 
     function formatBimap(bitmap: Array<number>) {
         const formattedBitmap: Array<number> = [];
-        
-        const bitmap2 = [
-            //    Izq   Der
-            0xFF, 0xFF,  // Fila 0: arriba de ambos cuadrados
-            0x81, 0x81,  // Fila 1
-            0x81, 0x81,  // Fila 2
-            0x81, 0x81,  // Fila 3
-            0x81, 0x81,  // Fila 4
-            0x81, 0x81,  // Fila 5
-            0x81, 0x81,  // Fila 6
-            0xFF, 0xFF   // Fila 7: abajo de ambos cuadrados
-        ];
 
         for (let i = 0; i < bitmap.length; i += 2) {
             // bitmap[i] = byte para la mitad izquierda (columnas 0-7)
@@ -103,7 +91,6 @@ namespace ht16k33 {
 
         return formattedBitmap;
     }
-
     function initializeDisplay() {
         /** 
          * Required to initialize I2C 
