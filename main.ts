@@ -56,31 +56,37 @@ namespace ht16k33 {
         )
     }
 
+
     //% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
     export function render(bitmap: number[]) {
+        console.log(bitmap);
         const formattedBitmap = formatBimap(bitmap)
         const buff = pins.createBufferFromArray(formattedBitmap);
         pins.i2cWriteBuffer(matrixAddress, buff, false);
     }
 
     function rotate(value: number) {
-        return (value >> 1) | (value << 7);
-    }
-
-    function formatBimapOld(bitmap: Array<number>) {
-        const formattedBitmap: Array<number> = [0];
-
-        bitmap.forEach(function (i) {
-            formattedBitmap.push(rotate(i));
-            //Since the 8x8 Matrix chip can render on an 16x8 screen we have to write an empty byte
-            formattedBitmap.push(0);
-        });
-
-        return formattedBitmap;
+        return value;
+        //return (value >> 1) | (value << 7);
     }
 
     function formatBimap(bitmap: Array<number>) {
+
         const formattedBitmap: Array<number> = [];
+
+        let bitmap2 = [
+            //    Izq   Der
+            0xFF, 0xFF,  // Fila 0: arriba de ambos cuadrados
+            0x81, 0x81,  // Fila 1
+            0x81, 0x81,  // Fila 2
+            0x81, 0x81,  // Fila 3
+            0x81, 0x81,  // Fila 4
+            0x81, 0x81,  // Fila 5
+            0x81, 0x81,  // Fila 6
+            0xFF, 0xFF   // Fila 7: abajo de ambos cuadrados
+        ];
+
+        console.log(bitmap);
 
         for (let i = 0; i < bitmap.length; i += 2) {
             // bitmap[i] = byte para la mitad izquierda (columnas 0-7)
@@ -91,13 +97,12 @@ namespace ht16k33 {
 
         return formattedBitmap;
     }
+    
     function initializeDisplay() {
         /** 
          * Required to initialize I2C 
          * Issue: https://github.com/lancaster-university/codal-samd/issues/13
          **/
-        //pins.SDA.setPull(PinPullMode.PullNone)
-        //pins.SCL.setPull(PinPullMode.PullNone)
         pins.setPull(DigitalPin.P20, PinPullMode.PullNone) // SDA
         pins.setPull(DigitalPin.P19, PinPullMode.PullNone) // SCL
         sendCommand(HT16K33_COMMANDS.TURN_OSCILLATOR_ON)
