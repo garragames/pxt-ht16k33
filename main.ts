@@ -24,7 +24,8 @@ enum HT16K33_I2C_ADDRESSES {
 enum HT16K33_COMMANDS {
     TURN_OSCILLATOR_ON = 0x21,
     TURN_DISPLAY_ON = 0x81,
-    SET_BRIGHTNESS = 0xE0
+    SET_BRIGHTNESS = 0xE0,
+    SET_MODE = 0xA0
 }
 
 enum HT16K33_CONSTANTS {
@@ -46,7 +47,6 @@ namespace ht16k33 {
             0,
             NumberFormat.Int8LE,
             false
-
         )
         pins.i2cWriteNumber(
             matrixAddress,
@@ -55,7 +55,6 @@ namespace ht16k33 {
             false
         )
     }
-
 
     //% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
     export function render(bitmap: number[]) {
@@ -73,20 +72,8 @@ namespace ht16k33 {
     function formatBimap(bitmap: Array<number>) {
 
         const formattedBitmap: Array<number> = [];
-
-        let bitmap2 = [
-            //    Izq   Der
-            0xFF, 0xFF,  // Fila 0: arriba de ambos cuadrados
-            0x81, 0x81,  // Fila 1
-            0x81, 0x81,  // Fila 2
-            0x81, 0x81,  // Fila 3
-            0x81, 0x81,  // Fila 4
-            0x81, 0x81,  // Fila 5
-            0x81, 0x81,  // Fila 6
-            0xFF, 0xFF   // Fila 7: abajo de ambos cuadrados
-        ];
-
         console.log(bitmap);
+        console.log(formatBimap);
 
         for (let i = 0; i < bitmap.length; i += 2) {
             // bitmap[i] = byte para la mitad izquierda (columnas 0-7)
@@ -107,6 +94,7 @@ namespace ht16k33 {
         pins.setPull(DigitalPin.P19, PinPullMode.PullNone) // SCL
         sendCommand(HT16K33_COMMANDS.TURN_OSCILLATOR_ON)
         sendCommand(HT16K33_COMMANDS.TURN_DISPLAY_ON)
+        sendCommand(HT16K33_COMMANDS.SET_MODE)
         setBrightness(3);
     }
     //% blockId="HT16K33_SET_ADDRESS" block="set address %address"
