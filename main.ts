@@ -82,7 +82,7 @@ namespace ht16k33 {
     function formatBimap(bitmap: Array<number>) {
         const formattedBitmap: Array<number> = [];
         
-        bitmap = [
+        const bitmap2 = [
             //    Izq   Der
             0xFF, 0xFF,  // Fila 0: arriba de ambos cuadrados
             0x81, 0x81,  // Fila 1
