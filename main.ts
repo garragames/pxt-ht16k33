@@ -67,7 +67,7 @@ namespace ht16k33 {
         return (value >> 1) | (value << 7);
     }
 
-    function formatBimap(bitmap: Array<number>) {
+    function formatBimapOld(bitmap: Array<number>) {
         const formattedBitmap: Array<number> = [0];
 
         bitmap.forEach(function (i) {
@@ -79,16 +79,43 @@ namespace ht16k33 {
         return formattedBitmap;
     }
 
+    function formatBimap(bitmap: Array<number>) {
+        const formattedBitmap: Array<number> = [];
+        
+        bitmap = [
+            //    Izq   Der
+            0xFF, 0xFF,  // Fila 0: arriba de ambos cuadrados
+            0x81, 0x81,  // Fila 1
+            0x81, 0x81,  // Fila 2
+            0x81, 0x81,  // Fila 3
+            0x81, 0x81,  // Fila 4
+            0x81, 0x81,  // Fila 5
+            0x81, 0x81,  // Fila 6
+            0xFF, 0xFF   // Fila 7: abajo de ambos cuadrados
+        ];
+
+        for (let i = 0; i < bitmap.length; i += 2) {
+            // bitmap[i] = byte para la mitad izquierda (columnas 0-7)
+            // bitmap[i+1] = byte para la mitad derecha (columnas 8-15)
+            formattedBitmap.push(rotate(bitmap[i]));
+            formattedBitmap.push(rotate(bitmap[i + 1]));
+        }
+
+        return formattedBitmap;
+    }
+
     function initializeDisplay() {
         /** 
          * Required to initialize I2C 
          * Issue: https://github.com/lancaster-university/codal-samd/issues/13
          **/
-        pins.SDA.setPull(PinPullMode.PullNone)
-        pins.SCL.setPull(PinPullMode.PullNone)
+        //pins.SDA.setPull(PinPullMode.PullNone)
+        //pins.SCL.setPull(PinPullMode.PullNone)
+        pins.setPull(DigitalPin.P20, PinPullMode.PullNone) // SDA
+        pins.setPull(DigitalPin.P19, PinPullMode.PullNone) // SCL
         sendCommand(HT16K33_COMMANDS.TURN_OSCILLATOR_ON)
         sendCommand(HT16K33_COMMANDS.TURN_DISPLAY_ON)
-        setBrightness(15);
+        setBrightness(3);
     }
     //% blockId="HT16K33_SET_ADDRESS" block="set address %address"
     export function setAddress(address: HT16K33_I2C_ADDRESSES) {
