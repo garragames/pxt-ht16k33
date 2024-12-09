@@ -40,25 +40,56 @@ enum HT16K33_CONSTANTS {
 namespace ht16k33 {
     let matrixAddress = 0;
 
-    const EYES = 0;
-    const ANGER = 1;
-    const SAD = 2;
-    const CONFUSED = 3;
+    const NEUTRAL  = 0;
+    const ANGER    = 1;
+    const SAD      = 2;
+    const LOVE     = 3;
+    const CONFUSED = 4;
+    const DEAD     = 5;
+    const HAPPY    = 6;
+    const SLEEP    = 7;
+    const WAVES    = 8;
+    const CRAZY    = 9;
+    const SURPRISE = 10;
+    const MAGIC    = 11;
 
     export enum Icons {
-        //% block="eyes"
-        //% jres=icons.eyes
-        eyes = EYES,
+        //% block="neutral"
+        //% jres=icons.neutral
+        neutral = NEUTRAL,
         //% block="anger"
         //% jres=icons.anger
         anger = ANGER,
         //% block="sad"
         //% jres=icons.sad
         sad = SAD,
+        //% block="love"
+        //% jres=icons.love
+        love = LOVE,
         //% block="confused"
         //% jres=icons.confused
-        love = CONFUSED
-        
+        confused = CONFUSED,
+        //% block="dead"
+        //% jres=icons.dead
+        dead = DEAD,
+        //% block="happy"
+        //% jres=icons.happy
+        happy = HAPPY,
+        //% block="sleep"
+        //% jres=icons.sleep
+        sleep = SLEEP,
+        //% block="waves"
+        //% jres=icons.waves
+        waves = WAVES,
+        //% block="crazy"
+        //% jres=icons.crazy
+        crazy = CRAZY,
+        //% block="surprise"
+        //% jres=icons.surprise
+        surprise = SURPRISE,
+        //% block="magic"
+        //% jres=icons.magic
+        magic = MAGIC       
     }
 
     function sendCommand(command: HT16K33_COMMANDS) {
@@ -125,16 +156,16 @@ namespace ht16k33 {
     */
     //% blockId=setIcon
     //% block="set icon $icon"
-    //% icon.defl=Icons.eyes
+    //% icon.defl=Icons.neutral
     //% icon.fieldEditor="imagedropdown" 
     //% icon.fieldOptions.columns=3
     //% icon.fieldOptions.width="300"
     //% icon.fieldOptions.maxRows=3
-    //% group="Icons"
+    //% group="Emotions"
     //% weight=240
-    export function setIcon(icon: Icons): void {
-        basic.showNumber(icon)
-        render(Emotions.emotions[icon])
+    export function setEmotion(icon: Icons): void {
+        //basic.showNumber(icon)
+        render(Emotions.icons[icon])
     }
 
     //% blockId="HT16K33_SET_ADDRESS" block="set address %address"
