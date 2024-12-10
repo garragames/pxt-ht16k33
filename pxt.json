@@ -1,5 +1,5 @@
 {
-    "name": "pxt-ht16k33",
+    "name": "16x8 LED Matrix",
     "version": "0.0.2",
     "description": "",
     "dependencies": {
