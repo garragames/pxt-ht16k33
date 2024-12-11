@@ -53,39 +53,39 @@ namespace ht16k33 {
     const SURPRISE = 10;
     const MAGIC    = 11;
 
-    export enum Icons {
+    export enum Eyes {
         //% block="neutral"
-        //% jres=icons.neutral
+        //% jres=eyes.neutral
         neutral = NEUTRAL,
         //% block="anger"
-        //% jres=icons.anger
+        //% jres=eyes.anger
         anger = ANGER,
         //% block="sad"
-        //% jres=icons.sad
+        //% jres=eyes.sad
         sad = SAD,
         //% block="love"
-        //% jres=icons.love
+        //% jres=eyes.love
         love = LOVE,
         //% block="confused"
-        //% jres=icons.confused
+        //% jres=eyes.confused
         confused = CONFUSED,
         //% block="dead"
-        //% jres=icons.dead
+        //% jres=eyes.dead
         dead = DEAD,
         //% block="happy"
-        //% jres=icons.happy
+        //% jres=eyes.happy
         happy = HAPPY,
         //% block="sleep"
-        //% jres=icons.sleep
+        //% jres=eyes.sleep
         sleep = SLEEP,
         //% block="waves"
-        //% jres=icons.waves
+        //% jres=eyes.waves
         waves = WAVES,
         //% block="crazy"
-        //% jres=icons.crazy
+        //% jres=eyes.crazy
         crazy = CRAZY,
         //% block="surprise"
-        //% jres=icons.surprise
+        //% jres=eyes.surprise
         surprise = SURPRISE,
         //% block="magic"
         //% jres=icons.magic
@@ -156,14 +156,14 @@ namespace ht16k33 {
     */
     //% blockId=setIcon
     //% block="set icon $icon"
-    //% icon.defl=Icons.neutral
+    //% icon.defl=Eyes.neutral
     //% icon.fieldEditor="imagedropdown" 
     //% icon.fieldOptions.columns=3
     //% icon.fieldOptions.width="300"
     //% icon.fieldOptions.maxRows=3
     //% group="Emotions"
     //% weight=240
-    export function setEmotion(icon: Icons): void {
+    export function setEmotion(icon: Eyes): void {
         //basic.showNumber(icon)
         render(Emotions.icons[icon])
     }
