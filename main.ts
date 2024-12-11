@@ -53,7 +53,7 @@ namespace ht16k33 {
     const SURPRISE = 10;
     const MAGIC    = 11;
 
-    export enum Eyes {
+    export enum Icons {
         //% block="neutral"
         //% jres=eyes.neutral
         neutral = NEUTRAL,
@@ -163,8 +163,7 @@ namespace ht16k33 {
     //% icon.fieldOptions.maxRows=3
     //% group="Emotions"
     //% weight=240
-    export function setEmotion(icon: Eyes): void {
-        //basic.showNumber(icon)
+    export function setEmotion(icon: Icons): void {
         render(Emotions.icons[icon])
     }
 
