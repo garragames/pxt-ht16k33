@@ -38,7 +38,7 @@ enum HT16K33_CONSTANTS {
  */
 //% weight=100 color=#00a7e9 icon="\uf26c" block="HT16K33"
 namespace ht16k33 {
-    let matrixAddress = 0;
+    let matrixAddress = HT16K33_I2C_ADDRESSES.ADD_0x70;
 
     const NEUTRAL  = 0;
     const ANGER    = 1;
@@ -88,7 +88,7 @@ namespace ht16k33 {
         //% jres=eyes.surprise
         surprise = SURPRISE,
         //% block="magic"
-        //% jres=icons.magic
+        //% jres=eyes.magic
         magic = MAGIC       
     }
 
@@ -107,7 +107,7 @@ namespace ht16k33 {
         )
     }
 
-    //% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
+    ////% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
     export function render(bitmap: number[]) {
         const formattedBitmap = formatBimap(bitmap)
         const buff = pins.createBufferFromArray(formattedBitmap);
@@ -168,12 +168,12 @@ namespace ht16k33 {
     }
 
     //% blockId="HT16K33_SET_ADDRESS" block="set address %address"
-    export function setAddress(address: HT16K33_I2C_ADDRESSES) {
-        if (matrixAddress != address) {
-            matrixAddress = address;
-            initializeDisplay();
-        }
-    }
+    //export function setAddress(address: HT16K33_I2C_ADDRESSES) {
+    //    if (matrixAddress != address) {
+    //        matrixAddress = address;
+    //        initializeDisplay();
+    //    }
+    //}
 
     //% blockId="HT16K33_SET_BRIGHTNESS" block="set brightness %brightness"
     //% brightness.min=0 brightness.max=15

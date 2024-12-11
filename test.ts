@@ -1,7 +1,6 @@
 let frown: number[] = []
 let meh: number[] = []
 let smile: number[] = []
-ht16k33.setAddress(HT16K33_I2C_ADDRESSES.ADD_0x70)
 smile = [60, 66, 165, 129, 165, 153, 66, 60]
 meh = [60, 66, 165, 129, 189, 129, 66, 60]
 frown = [60, 66, 165, 129, 153, 165, 66, 60]
