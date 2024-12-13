@@ -107,7 +107,7 @@ namespace ht16k33 {
         )
     }
 
-    ////% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
+    //% blockId="HT16K33_RENDER_BITMAP" block="render bitmap %bitmap"
     export function render(bitmap: number[]) {
         const formattedBitmap = formatBimap(bitmap)
         const buff = pins.createBufferFromArray(formattedBitmap);
@@ -168,12 +168,12 @@ namespace ht16k33 {
     }
 
     //% blockId="HT16K33_SET_ADDRESS" block="set address %address"
-    //export function setAddress(address: HT16K33_I2C_ADDRESSES) {
-    //    if (matrixAddress != address) {
-    //        matrixAddress = address;
-    //        initializeDisplay();
-    //    }
-    //}
+    export function setAddress(address: HT16K33_I2C_ADDRESSES) {
+        if (matrixAddress != address) {
+            matrixAddress = address;
+            initializeDisplay();
+        }
+    }
 
     //% blockId="HT16K33_SET_BRIGHTNESS" block="set brightness %brightness"
     //% brightness.min=0 brightness.max=15
