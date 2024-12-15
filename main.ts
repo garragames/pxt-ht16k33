@@ -1,5 +1,5 @@
 /**
- * makecode HT16K33 led backpack Package
+ * makecode HT16K33 led backpack Package extension
  */
 
 enum HT16K33_I2C_ADDRESSES {
