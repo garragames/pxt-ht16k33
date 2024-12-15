@@ -24,7 +24,15 @@ enum HT16K33_I2C_ADDRESSES {
 enum HT16K33_COMMANDS {
     TURN_OSCILLATOR_ON = 0x21,
     TURN_DISPLAY_ON = 0x81,
-    SET_BRIGHTNESS = 0xE0
+    SET_BRIGHTNESS = 0xE0,
+
+    // De la liberaria de Adafruit LED Backpack
+    HT16K33_BLINK_CMD = 0x80,       ///< I2C register for BLINK setting
+    HT16K33_BLINK_DISPLAYON = 0x01, ///< I2C value for steady on
+    HT16K33_BLINK_OFF = 0,          ///< I2C value for steady off
+    HT16K33_BLINK_2HZ = 1,          ///< I2C value for 2 Hz blink
+    HT16K33_BLINK_1HZ = 2,          ///< I2C value for 1 Hz blink
+    HT16K33_BLINK_HALFHZ = 3        ///< I2C value for 0.5 Hz blink
 }
 
 enum HT16K33_CONSTANTS {
@@ -38,7 +46,7 @@ enum HT16K33_CONSTANTS {
  */
 //% weight=100 color=#00a7e9 icon="\uf26c" block="HT16K33"
 namespace ht16k33 {
-    let matrixAddress = HT16K33_I2C_ADDRESSES.ADD_0x70;
+    let matrixAddress = 0;
 
     const NEUTRAL  = 0;
     const ANGER    = 1;
