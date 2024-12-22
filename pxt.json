@@ -1,7 +1,7 @@
 {
     "name": "16x8 LED Matrix ",
     "version": "0.0.3",
-    "description": "",
+    "description": "16x8 led matrix based on the HT16K33 IC",
     "dependencies": {
         "core": "*",
         "microphone": "*"
@@ -18,7 +18,7 @@
     ],
     "public": false,
     "targetVersions": {
-        "target": "7.0.51",
+        "target": "7.1.17",
         "targetId": "microbit"
     },
     "supportedTargets": [
