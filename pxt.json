@@ -1,6 +1,6 @@
 {
     "name": "16x8 LED Matrix ",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "16x8 led matrix based on the HT16K33 IC",
     "dependencies": {
         "core": "*",
